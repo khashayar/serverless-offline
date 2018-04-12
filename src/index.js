@@ -264,7 +264,7 @@ module.exports = S => {
         // Runtime checks
         // No python or Java :'(
         const funRuntime = fun.runtime;
-        if (['nodejs', 'nodejs4.3', 'babel'].indexOf(funRuntime) === -1) {
+        if (['nodejs', 'nodejs4.3', 'nodejs6.10', 'nodejs8.10', 'babel'].indexOf(funRuntime) === -1) {
           printBlankLine();
           serverlessLog(`Warning: found unsupported runtime '${funRuntime}' for function '${fun.name}'`);
           return;
