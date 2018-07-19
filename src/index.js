@@ -619,7 +619,7 @@ module.exports = S => {
                 const x = handler(event, lambdaContext, lambdaContext.done);
 
                 // Promise support
-                if (funRuntime === 'babel' && !this.requests[requestId].done) {
+                if ((funRuntime === 'nodejs8.10' || funRuntime === 'babel') && !this.requests[requestId].done) {
                   if (x && typeof x.then === 'function' && typeof x.catch === 'function') x.then(lambdaContext.succeed).catch(lambdaContext.fail);
                   else if (x instanceof Error) lambdaContext.fail(x);
                 }
